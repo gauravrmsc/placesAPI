@@ -25,7 +25,7 @@
         infowindow.setContent(infowindowContent);
         autocomplete.addListener('place_changed', function() {
             var place = autocomplete.getPlace();
-            console.log(place);
+            console.log(place.geometry.location.lat());
         });}
     </script>
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnCIGvDkiG4uE9NAiAIyb5qrad29QyUWw&libraries=places&callback=f"
