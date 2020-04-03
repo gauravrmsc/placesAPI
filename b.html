@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  
+    </head>
+    <body>
+        <form>
+            <input type = "text" id="inputField" style="width:100%">
+        </form>
+        <div id="infowindow-content">
+            <img src="" width="16" height="16" id="place-icon">
+            <span id="place-name"  class="title"></span><br>
+            <span id="place-address"></span>
+          </div>
+    </body>
+   
+    <script>
+    function f(){
+        var input = document.getElementById('inputField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.setFields(
+            ['address_components', 'geometry', 'icon', 'name']);
+            var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            console.log(place);
+        });}
+    </script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnCIGvDkiG4uE9NAiAIyb5qrad29QyUWw&libraries=places&callback=f"
+     async defer></script>
+</html>
